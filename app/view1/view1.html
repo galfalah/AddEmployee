@@ -1,0 +1,51 @@
+<div class="container" >
+    <div class="add-employee-button">
+        <a  class="employees-tabs" ng-model="showAddEmployeeForm" ng-click="showAddEmployeeFormFunc()">Add employee</a>
+        <div class="employees-ul" ng-model="employees" ng-repeat="employee in emplyees">
+            <div class="employees-tabs"><a ng-click="showEmployeeDatafunc(employee)">{{employee.employeeName}}</a></div>
+        </div>
+    </div>
+
+    <div class="data" ng-model="employeeData" ng-show="showEmployeeData">
+        <div class="data"><a>Employee Number{{employeeData.employeeNumber}}</a></div>
+        <div class="data"><a>Employee Name{{employeeData.employeeName}}</a></div>
+        <div class="data"><a>Employee ID{{employeeData.employeeId}}</a></div>
+        <div class="data"><a>Employee Birth Day{{employeeData.employeeBirthDay}}</a></div>
+        <div class="data"><a>Employee Gender{{employeeData.employeeGender}}</a></div>
+    </div>
+
+    <div class="form-containter" ng-model="showAddEmployeeForm" ng-show="showAddEmployeeForm">
+        <ng-form name="addform">
+            <div class="form-group">
+                <label for="employee-number">Employee number:</label>
+                <input type="text" class="form-control" name="employeenum" id="employee-number" placeholder="Enter number" ng-model="tempEmployee.employeeNumber" ng-pattern="/^[0-9-]{4,9}$/" required>
+                <span ng-show="addform.employeenum.$error.pattern" style="color:red">invalid</span>
+                <div>{{tempEmployee.employeeNumber}}</div>
+            </div>
+            <div class="form-group">
+                <label for="employee-name">Employee name:</label>
+                <input type="text" class="form-control" name="employeename" id="employee-name" placeholder="Enter Name" ng-model="tempEmployee.employeeName" ng-pattern="/^[a-zA-Z ]{1,15}$/" required>
+                <span ng-show="addform.employeename.$error.pattern" style="color:red">invalid</span>
+                <div>{{tempEmployee.employeeName}}</div>
+            </div>
+            <div class="form-group">
+                <label for="employee-id">Employee ID:</label>
+                <input type="text" class="form-control" name="empid" id="employee-id" placeholder="Enter ID" ng-model="tempEmployee.employeeId" ng-maxlength="15" ng-pattern="/^[0-9]{1,15}$/" required>
+                <span ng-show="addform.empid.$error.pattern" style="color:red">invalid</span>
+                <div>{{tempEmployee.employeeId}}</div>
+            </div>
+            <div class="form-group">
+                <label for="employee-bd">Employee birth day:</label>
+                <input type="date" class="form-control" id="employee-bd" placeholder="Enter birth day" ng-model="tempEmployee.employeeBirthDay" max="{{minAge | date:'yyyy-MM-dd'}}" required>
+                <div>{{tempEmployee.employeeBirthDay}}</div>
+            </div>
+            <div name="empgender" >
+                <input type="radio" name="gender" ng-model="tempEmployee.employeeGender" value="male" required > Male<br>
+                <input type="radio" name="gender" ng-model="tempEmployee.employeeGender" value="female"> Female<br>
+                <input type="radio" name="gender" ng-model="tempEmployee.employeeGender" value="other"> Other
+            </div>
+            <div>{{tempEmployee.gender}}</div>
+            <button type="submit" ng-show="addform.$valid" class="btn btn-default" ng-click="submitNewEmployeeFunc()">Submit</button>
+        </ng-form>
+    </div>
+</div>
