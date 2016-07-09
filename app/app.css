@@ -29,14 +29,20 @@
   padding: 0;
 }
 
-.add-employee-button{
+.add-employee-manu{
+width: 100%;
 display: inline-block;
+  border: solid 1px black;
 }
 
 .employees-tabs , .employees-ul{
   float: left;
   margin-left: 5px;
+background-color: white;
 }
-.data{
-  display: inline-block;
+.container-fluid ul li a.mark-tab{
+color: #00b3ee;
+}
+.container-fluid a.mark-tab{
+  color: #00b3ee;
 }

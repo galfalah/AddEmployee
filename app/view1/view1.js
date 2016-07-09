@@ -50,7 +50,7 @@ angular.module('myApp.view1', ['ngRoute'])
   $scope.hideAddEmployeeFormFunc = hideAddEmployee;
 
   function submitNewEmployee(){
-    showEmployeeDataSetFalse();
+    $scope.showEmployeeData = false;
     $scope.emplyees.push($scope.tempEmployee);
     $scope.tempEmployee = {employeeNumber:'' , employeeName:'',  employeeId:'' , employeeBirthDay:'' , employeeGender:''};
     $scope.hideAddEmployeeFormFunc();

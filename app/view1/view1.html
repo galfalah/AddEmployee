@@ -1,17 +1,34 @@
 <div class="container" >
-    <div class="add-employee-button">
-        <a  class="employees-tabs" ng-model="showAddEmployeeForm" ng-click="showAddEmployeeFormFunc()">Add employee</a>
-        <div class="employees-ul" ng-model="employees" ng-repeat="employee in emplyees">
-            <div class="employees-tabs"><a ng-click="showEmployeeDatafunc(employee)">{{employee.employeeName}}</a></div>
-        </div>
-    </div>
 
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ng-model="showAddEmployeeForm" ng-class="{'mark-tab' : showAddEmployeeForm}"ng-click="showAddEmployeeFormFunc()">Add employee</a>
+            </div>
+            <ul class="nav navbar-nav"  ng-model="employees" ng-repeat="employee in emplyees">
+                <li><a class="employee-tab" ng-class="{'mark-tab' : employee.employeeName == employeeData.employeeName && !showAddEmployeeForm}" ng-click="showEmployeeDatafunc(employee)">{{employee.employeeName}}</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <!--<nav class="navbar navbar-inverse">-->
+        <!--<div class="add-employee-manu nav navbar-nav" >-->
+
+            <!--<a  class="employees-tabs navbar-brand" ng-model="showAddEmployeeForm" ng-model="showAddEmployeeForm" >Add employee</a>-->
+            <!--<div class="employees-ul" ng-model="employees" ng-repeat="employee in emplyees">-->
+             <!--<div class="employees-tabs"><a ng-click="showEmployeeDatafunc(employee)">{{employee.employeeName}}</a></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</nav>-->
     <div class="data" ng-model="employeeData" ng-show="showEmployeeData">
-        <div class="data"><a>Employee Number{{employeeData.employeeNumber}}</a></div>
-        <div class="data"><a>Employee Name{{employeeData.employeeName}}</a></div>
-        <div class="data"><a>Employee ID{{employeeData.employeeId}}</a></div>
-        <div class="data"><a>Employee Birth Day{{employeeData.employeeBirthDay}}</a></div>
-        <div class="data"><a>Employee Gender{{employeeData.employeeGender}}</a></div>
+        <div class="data"><a>Employee Number: {{employeeData.employeeNumber}}</a></div>
+        <div class="data"><a>Employee Name:{{employeeData.employeeName}}</a></div>
+        <div class="data"><a>Employee ID: {{employeeData.employeeId}}</a></div>
+        <div class="data"><a>Employee Birth Day:{{employeeData.employeeBirthDay}}</a></div>
+        <div class="data"><a>Employee Gender:{{employeeData.employeeGender}}</a></div>
     </div>
 
     <div class="form-containter" ng-model="showAddEmployeeForm" ng-show="showAddEmployeeForm">
